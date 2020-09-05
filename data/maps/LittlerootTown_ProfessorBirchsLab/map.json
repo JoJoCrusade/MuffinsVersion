@@ -21,15 +21,15 @@
       "x": 6,
       "y": 12,
       "elevation": 0,
-      "dest_map": "MAP_LITTLEROOT_TOWN",
-      "dest_warp_id": 2
+      "dest_map": "MAP_SAND_PEARL_LAB",
+      "dest_warp_id": 0
     },
     {
       "x": 7,
       "y": 12,
       "elevation": 0,
-      "dest_map": "MAP_LITTLEROOT_TOWN",
-      "dest_warp_id": 2
+      "dest_map": "MAP_SAND_PEARL_LAB",
+      "dest_warp_id": 0
     }
   ],
   "coord_events": [
