@@ -4420,6 +4420,16 @@
       "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/SandPearlTown/border.bin",
       "blockdata_filepath": "data/layouts/SandPearlTown/map.bin"
+    },
+    {
+      "id": "LAYOUT_SAND_PEARL_LAB",
+      "name": "SandPearlLab_Layout",
+      "width": 13,
+      "height": 17,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Dewford",
+      "border_filepath": "data/layouts/SandPearlLab/border.bin",
+      "blockdata_filepath": "data/layouts/SandPearlLab/map.bin"
     }
   ]
 }

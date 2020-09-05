@@ -1,7 +1,7 @@
 {
-  "id": "MAP_SAND_PEARL_TOWN",
-  "name": "SandPearlTown",
-  "layout": "LAYOUT_SAND_PEARL_TOWN",
+  "id": "MAP_SAND_PEARL_LAB",
+  "name": "SandPearlLab",
+  "layout": "LAYOUT_SAND_PEARL_LAB",
   "music": "MUS_ABANDONED_SHIP",
   "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
   "requires_flash": false,
@@ -14,9 +14,9 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "direction": "right",
-      "offset": 9,
-      "map": "MAP_SAND_PEARL_LAB"
+      "direction": "left",
+      "offset": -9,
+      "map": "MAP_SAND_PEARL_TOWN"
     }
   ],
   "object_events": [
