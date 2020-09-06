@@ -27,12 +27,21 @@
       "x": 6,
       "y": 10,
       "elevation": 0,
-      "dest_map": "MAP_LITTLEROOT_TOWN_MAYS_HOUSE_1F",
-      "dest_warp_id": 0
+      "dest_map": "MAP_NONE",
+      "dest_warp_id": 127
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SandPearlTown_SetPlayerHouseWarp",
+      "SetWarp": "0"
+    }
   ],
   "bg_events": [
 
