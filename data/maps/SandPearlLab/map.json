@@ -17,6 +17,11 @@
       "direction": "left",
       "offset": -9,
       "map": "MAP_SAND_PEARL_TOWN"
+    },
+    {
+      "direction": "up",
+      "offset": 0,
+      "map": "MAP_ROUTE1"
     }
   ],
   "object_events": [
