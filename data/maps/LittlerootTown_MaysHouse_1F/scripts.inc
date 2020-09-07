@@ -30,8 +30,6 @@ LittlerootTown_MaysHouse_1F_EventScript_ShowRunningShoesManual:: @ 81F88EA
 	return
 
 LittlerootTown_MaysHouse_1F_OnTransition: @ 81F88F4
-	compare VAR_LITTLEROOT_INTRO_STATE, 3
-	call_if_eq LittlerootTown_MaysHouse_1F_EventScript_MoveMomToDoor
 	compare VAR_LITTLEROOT_INTRO_STATE, 5
 	call_if_eq LittlerootTown_MaysHouse_1F_EventScript_MoveMomToStairs
 	compare VAR_LITTLEROOT_INTRO_STATE, 6
@@ -55,6 +53,7 @@ LittlerootTown_MaysHouse_1F_EventScript_MoveMomToDoor:: @ 81F892E
 
 @ Many of the below scripts have no gender check because they assume youre in the correct house
 LittlerootTown_MaysHouse_1F_OnFrame: @ 81F893A
+	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 0, LittlerootTown_MaysHouse_1F_EventScript_MomGoodMorning
 	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 3, LittlerootTown_MaysHouse_1F_EventScript_EnterHouseMovingIn
 	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 5, LittlerootTown_MaysHouse_1F_EventScript_GoUpstairsToSetClock
 	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 6, LittlerootTown_MaysHouse_1F_EventScript_PetalburgGymReport
@@ -220,6 +219,12 @@ LittlerootTown_MaysHouse_1F_EventScript_MeetRival:: @ 81F8A8B
 	releaseall
 	end
 
+LittlerootTown_MaysHouse_1F_EventScript_MomGoodMorning::
+	lock
+	call LittlerootTown_MaysHouse_1F_EventScript_MomWalkToStairs
+	release
+	end
+
 LittlerootTown_MaysHouse_1F_EventScript_PlayerFaceMay:: @ 81F8B2A
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestDown
 	waitmovement 0
@@ -284,6 +289,15 @@ LittlerootTown_MaysHouse_1F_EventScript_MayGoUpstairs2:: @ 81F8B8E
 	waitmovement 0
 	return
 
+LittlerootTown_MaysHouse_1F_EventScript_MomWalkToStairs::
+	applymovement LOCALID_MOM, LittlerootTown_MaysHouse_1F_Movement_MomGoodMorning
+	waitmovement LOCALID_MOM
+	setobjectmovementtype LOCALID_MOM, MOVEMENT_TYPE_FACE_LEFT
+	msgbox YourHouse_1F_Text_MomGoodMorning, MSGBOX_DEFAULT
+	closemessage
+	setvar VAR_LITTLEROOT_INTRO_STATE, 1
+	return
+
 LittlerootTown_MaysHouse_1F_Movement_PlayerWatchMayExit0: @ 81F8BA0
 	delay_16
 	delay_8
@@ -331,6 +345,15 @@ LittlerootTown_MaysHouse_1F_Movement_MayGoUpstairs2: @ 81F8BBF
 	walk_in_place_fastest_up
 	walk_up
 	walk_up
+	step_end
+
+LittlerootTown_MaysHouse_1F_Movement_MomGoodMorning:
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_in_place_fastest_left
 	step_end
 
 RivalsHouse_1F_Text_OhYoureTheNewNeighbor: @ 81F8BC5
@@ -420,3 +443,16 @@ RivalsHouse_1F_Text_DoYouHavePokemon: @ 81F9262
 	.string "Hi, neighbor!\p"
 	.string "Do you already have your\n"
 	.string "own POKéMON?$"
+
+YourHouse_1F_Text_MomGoodMorning:
+	.string "Good morning, {PLAYER}!\n"
+	.string "Don't forget\p"
+	.string "you promised the professor\n"
+	.string "that you would help her today!\p"
+	.string "Shes waiting for you at the lab.\n"
+	.string "You better get going!$"
+
+YourHouse_1F_Text_MomGetGoing:
+	.string "The professor is waiting\p"
+	.string "for you at the lab.\n"
+	.string "You better get going!$"
