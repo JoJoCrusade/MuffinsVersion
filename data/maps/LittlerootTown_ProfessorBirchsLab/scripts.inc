@@ -1,14 +1,13 @@
-.set LOCALID_AIDE, 1
-.set LOCALID_BIRCH, 2
-.set LOCALID_RIVAL, 3
-.set LOCALID_BALL_CYNDAQUIL, 4
-.set LOCALID_BALL_TOTODILE, 5
-.set LOCALID_BALL_CHIKORITA, 6
+.set LOCALID_BIRCH, 1
+.set LOCALID_WAIDE, 2
+.SET LOCALID_AIDE, 3
+.set LOCALID_RIVAL, 4
+.set LOCALID_BALL_CYNDAQUIL, 5
+.set LOCALID_BALL_TOTODILE, 6
+.set LOCALID_BALL_CHIKORITA, 7
+
 
 LittlerootTown_ProfessorBirchsLab_MapScripts:: @ 81F9C91
-	map_script MAP_SCRIPT_ON_TRANSITION, LittlerootTown_ProfessorBirchsLab_OnTransition
-	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, LittlerootTown_ProfessorBirchsLab_OnWarp
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, LittlerootTown_ProfessorBirchsLab_OnFrame
 	.byte 0
 
 	@ State descriptions for VAR_DEX_UPGRADE_JOHTO_STARTER_STATE
@@ -25,53 +24,6 @@ LittlerootTown_ProfessorBirchsLab_MapScripts:: @ 81F9C91
 	@ 3: Received starter in lab
 	@ 4: Defeated rival on Route 103
 	@ 5: Received pokedex
-
-LittlerootTown_ProfessorBirchsLab_OnTransition: @ 81F9CA1
-	call Common_EventScript_SetupRivalGfxId
-	call ProfBirch_EventScript_UpdateLocation
-	compare VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 6
-	goto_if_ge LittlerootTown_ProfessorBirchsLab_EventScript_SetAfterJohtoStarterLayout
-	compare VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 4
-	goto_if_ge LittlerootTown_ProfessorBirchsLab_EventScript_SetJohtoStarterLayout
-	compare VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 3
-	goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_CheckReadyForJohtoStarter
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_CheckReadyForJohtoStarter:: @ 81F9CCD
-	specialvar VAR_RESULT, HasAllHoennMons
-	compare VAR_RESULT, TRUE
-	goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_SetReadyForJohtoStarter
-	setobjectmovementtype LOCALID_RIVAL, MOVEMENT_TYPE_WANDER_UP_AND_DOWN
-	setobjectxyperm LOCALID_RIVAL, 5, 10
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_SetReadyForJohtoStarter:: @ 81F9CE9
-	setvar VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 4
-	goto LittlerootTown_ProfessorBirchsLab_EventScript_SetJohtoStarterLayout
-
-LittlerootTown_ProfessorBirchsLab_EventScript_SetJohtoStarterLayout:: @ 81F9CF3
-	setmaplayoutindex LAYOUT_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB_WITH_TABLE
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_SetAfterJohtoStarterLayout:: @ 81F9CF7
-	setmaplayoutindex LAYOUT_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB_WITH_TABLE
-	setobjectmovementtype LOCALID_RIVAL, MOVEMENT_TYPE_WANDER_UP_AND_DOWN
-	setobjectxyperm LOCALID_RIVAL, 5, 10
-	end
-
-LittlerootTown_ProfessorBirchsLab_OnWarp: @ 81F9D06
-	map_script_2 VAR_BIRCH_LAB_STATE, 2, LittlerootTown_ProfessorBirchsLab_EventScript_SetPlayerPosForReceiveStarter
-	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_ProfessorBirchsLab_EventScript_SetObjectPosForDexUpgrade
-	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2, LittlerootTown_ProfessorBirchsLab_EventScript_SetObjectPosForDexUpgrade
-	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 3, LittlerootTown_ProfessorBirchsLab_EventScript_AddRivalObject
-	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 6, LittlerootTown_ProfessorBirchsLab_EventScript_AddRivalObject
-	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 4, LittlerootTown_ProfessorBirchsLab_EventScript_SetObjectPosForJohtoStarters
-	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 5, LittlerootTown_ProfessorBirchsLab_EventScript_SetObjectPosForJohtoStarters
-	.2byte 0
-
-LittlerootTown_ProfessorBirchsLab_EventScript_SetPlayerPosForReceiveStarter:: @ 81F9D40
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_SetObjectPosForDexUpgrade:: @ 81F9D45
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
@@ -106,12 +58,30 @@ LittlerootTown_ProfessorBirchsLab_EventScript_SetObjectPosForJohtoStarters:: @ 8
 	setobjectxy LOCALID_RIVAL, 5, 5
 	end
 
-LittlerootTown_ProfessorBirchsLab_OnFrame: @ 81F9DB9
-	map_script_2 VAR_BIRCH_LAB_STATE, 2, LittlerootTown_ProfessorBirchsLab_EventScript_GiveStarterEvent
-	map_script_2 VAR_BIRCH_LAB_STATE, 4, LittlerootTown_ProfessorBirchsLab_EventScript_GivePokedexEvent
-	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_ProfessorBirchsLab_EventScript_UpgradeToNationalDex
-	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 4, LittlerootTown_ProfessorBirchsLab_EventScript_ChooseJohtoStarter
-	.2byte 0
+LittlerootTown_ProfessorBirchsLab_EventScript_IntroGiveStarterEvemt::
+	faceplayer
+	lockall
+	compare VAR_LITTLEROOT_INTRO_STATE, 2
+	goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_StartJourney
+	message LittlerootTown_ProfessorBirchsLab_Text_IntroGreeting
+	waitmessage
+	special ChooseStarter
+	waitstate
+	playfanfare MUS_OBTAIN_ITEM
+	waitfanfare
+	setvar VAR_LITTLEROOT_INTRO_STATE, 2
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_WhyNotGiveNicknameToMon, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_NicknameStarter
+	compare VAR_RESULT, NO
+	goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_StartJourney
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_StartJourney::
+	msgbox LittlerootTown_ProfessorBirchsLab_TEXT_IntroJourneystart
+	waitmessage
+	releaseall
+	end
 
 @ The starter is technically given prior to this on Route 101 by special ChooseStarter
 @ This is just where the game tells you its yours and lets you nickname it
@@ -132,7 +102,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_GiveStarterEvent:: @ 81F9DDB
 LittlerootTown_ProfessorBirchsLab_EventScript_NicknameStarter:: @ 81F9E07
 	setvar VAR_0x8004, 0
 	call Common_EventScript_NameReceivedPartyMon
-	goto LittlerootTown_ProfessorBirchsLab_EventScript_GoSeeRival
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_StartJourney
 	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_GoSeeRival:: @ 81F9E17
@@ -1050,3 +1020,29 @@ LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall: @ 81FBD1A
 	.string "we meet. I'll be waiting!\p"
 	.string "… … … … … …\n"
 	.string "… … … … … Click!$"
+
+LittlerootTown_ProfessorBirchsLab_Text_IntroGreeting:
+	.string "Ah, just who I was waiting to see!\n"
+	.string "Hello {PLAYER}, thank you for stopping by\p"
+	.string "I appreciate the help\n"
+	.string "There have been rumors of a rare POKéMON\p"
+	.string "being seen in the mountain far north from here.\n"
+	.string "Everyone has been so busy\p"
+	.string "collecting gym badges.\n"
+	.string "They're not interested in the joy\p"
+	.string "of discovery!\n"
+	.string "Which is where you come in!\n"
+	.string "I know you have dreams other than\p"
+	.string "a POKéMON master. I need someone\n"
+	.string "with your love for the world\p"
+	.string "to go check out those rumors"
+	.string "Please, take one of my POKéMON/n"
+	.string "It'll be dangerous without one.\p"
+	.string "Don't worry you'll pick up on it quickly!$"
+
+LittlerootTown_ProfessorBirchsLab_TEXT_IntroJourneystart:
+	.string "Thank you, I know you can do it!\n"
+	.string "Head north of here to the next town\p"
+	.string "You'll be able to find supplies and maybe even\n"
+	.string "some trainers who will help you out\p"
+	.string "Thank you, I know you can do it!$"

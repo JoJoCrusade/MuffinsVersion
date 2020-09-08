@@ -117,6 +117,14 @@ LittlerootTown_MaysHouse_1F_Movement_RivalMomApproach: @ 81F89EC
 	walk_left
 	step_end
 
+LittlerootTown_MaysHouse_1F_EventScript_TalkToMom::
+	lock
+	faceplayer
+	compare VAR_LITTLEROOT_INTRO_STATE, 1
+	goto_if_eq LittlerootTown_MaysHouse_1F_EventScript_MomGetGoing
+	release
+	end
+
 RivalsHouse_1F_EventScript_RivalMom:: @ 81F89F3
 	lock
 	faceplayer
@@ -126,6 +134,11 @@ RivalsHouse_1F_EventScript_RivalMom:: @ 81F89F3
 	goto_if_eq RivalsHouse_1F_EventScript_RivalTooBusy
 	special GetRivalSonDaughterString
 	msgbox RivalsHouse_1F_Text_LikeChildLikeFather, MSGBOX_DEFAULT
+	release
+	end
+
+LittlerootTown_MaysHouse_1F_EventScript_MomGetGoing::
+	msgbox MaysHouse_1F_Text_MomGetGoing, MSGBOX_DEFAULT
 	release
 	end
 
@@ -293,6 +306,7 @@ LittlerootTown_MaysHouse_1F_EventScript_MomWalkToStairs::
 	applymovement LOCALID_MOM, LittlerootTown_MaysHouse_1F_Movement_MomGoodMorning
 	waitmovement LOCALID_MOM
 	setobjectmovementtype LOCALID_MOM, MOVEMENT_TYPE_FACE_LEFT
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestRight
 	msgbox YourHouse_1F_Text_MomGoodMorning, MSGBOX_DEFAULT
 	closemessage
 	setvar VAR_LITTLEROOT_INTRO_STATE, 1
@@ -452,7 +466,7 @@ YourHouse_1F_Text_MomGoodMorning:
 	.string "Shes waiting for you at the lab.\n"
 	.string "You better get going!$"
 
-YourHouse_1F_Text_MomGetGoing:
+MaysHouse_1F_Text_MomGetGoing:
 	.string "The professor is waiting\p"
 	.string "for you at the lab.\n"
 	.string "You better get going!$"
