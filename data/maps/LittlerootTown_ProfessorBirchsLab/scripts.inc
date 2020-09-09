@@ -5,7 +5,7 @@
 .set LOCALID_PIKACHU, 5
 .set LOCALID_SANDSHREW, 6
 
-LittlerootTown_ProfessorBirchsLab_MapScripts:: @ 81F9C91
+LittlerootTown_ProfessorBirchsLab_MapScripts::
 	.byte 0
 
 LittlerootTown_ProfessorBirchsLab_EventScript_TalkToProfessor::
@@ -15,6 +15,8 @@ LittlerootTown_ProfessorBirchsLab_EventScript_TalkToProfessor::
 	goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_IntroGreeting
 	compare VAR_BIRCH_LAB_STATE, 1
 	goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_WaitingStarterChoice
+	compare VAR_BIRCH_LAB_STATE, 2
+	goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_StartJourney
 	releaseall
 	end
 
@@ -22,6 +24,25 @@ LittlerootTown_ProfessorBirchsLab_EventScript_IntroGreeting::
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_IntroGreeting, MSGBOX_DEFAULT
 	waitmessage
 	setvar VAR_BIRCH_LAB_STATE, 1
+	call LittlerootTown_ProfessorBirchsLab_EventScript_PlaceStarters
+	releaseall
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_PlaceStarters::
+	applymovement LOCALID_BIRCH, LittlerootTown_ProfessorBirchsLab_Movement_ProfPlacePokemon
+	waitmovement LOCALID_BIRCH
+	applymovement LOCALID_BIRCH, Common_Movement_WalkInPlaceDown
+	waitmovement LOCALID_BIRCH
+	addobject LOCALID_WAILMER
+	delay 16
+	applymovement LOCALID_BIRCH, Common_Movement_WalkInPlaceDown
+	waitmovement LOCALID_BIRCH
+	addobject LOCALID_PIKACHU
+	delay 16
+	applymovement LOCALID_BIRCH, Common_Movement_WalkInPlaceDown
+	waitmovement LOCALID_BIRCH
+	addobject LOCALID_SANDSHREW
+	delay 16
 	releaseall
 	end
 
@@ -34,6 +55,13 @@ LittlerootTown_ProfessorBirchsLab_EventScript_StartJourney::
  LittlerootTown_ProfessorBirchsLab_Event_StarterBeforeTalking::
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_StarterBeforeTalking, MSGBOX_DEFAULT
 	waitmessage
+	releaseall
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_WaitingStarterChoicePreventLeaving::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_WaitingStarterChoice, MSGBOX_DEFAULT
+	waitmessage
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
 	releaseall
 	end
 
@@ -73,7 +101,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_ChoosingWailmer::
 
 LittlerootTown_ProfessorBirchsLab_EventScript_ChoosingPikachu::
 	showmonpic SPECIES_PIKACHU, 9, 3
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_YoullTakeWailmer, MSGBOX_YESNO
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_YoullTakePikachu, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_TakeYourTime
 	goto LittlerootTown_ProfessorBirchsLab_EventScript_GivePikachu
@@ -81,7 +109,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_ChoosingPikachu::
 
 LittlerootTown_ProfessorBirchsLab_EventScript_ChoosingSandshrew::
 	showmonpic SPECIES_SANDSHREW, 10, 3
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_YoullTakeWailmer, MSGBOX_YESNO
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_YoullTakeSandshrew, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_TakeYourTime
 	goto LittlerootTown_ProfessorBirchsLab_EventScript_GiveSandshrew
@@ -129,6 +157,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_GiveSandshrew::
 LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedWailmer::
 	hidemonpic
 	setvar VAR_BIRCH_LAB_STATE, 2
+	call LittlerootTown_ProfessorBirchsLab_EventScript_StartJourney
 	releaseall
 	end
 
@@ -161,6 +190,17 @@ LittlerootTown_ProfessorBirchsLab_EventScript_ScottAboardSSTidalCall:: @ 81FA4D6
 	clearflag FLAG_SCOTT_CALL_BATTLE_FRONTIER
 	releaseall
 	end
+
+LittlerootTown_ProfessorBirchsLab_Movement_ProfPlacePokemon:
+	face_up
+	walk_up
+	face_right
+	walk_right
+	walk_right
+	walk_right
+	face_down
+	step_end
+
 
 LittlerootTown_ProfessorBirchsLab_Text_BirchAwayOnFieldwork: @ 81FA4E2
 	.string "Hunh? PROF. BIRCH?\p"
@@ -524,7 +564,7 @@ LittlerootTown_ProfessorBirchsLab_TEXT_IntroJourneystart:
 	.string "Head north of here to the next town\p"
 	.string "You'll be able to find supplies and maybe even\n"
 	.string "some trainers who will help you out\p"
-	.string "Thank you, I know you can do it!$"
+	.string "Good luck!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_WaitingStarterChoice:
 	.string "It can be dangerous to go alone\p"
@@ -536,6 +576,17 @@ LittlerootTown_ProfessorBirchsLab_Text_StarterBeforeTalking:
 
 LittlerootTown_ProfessorBirchsLab_Text_YoullTakeWailmer:
 	.string "That's Wailmer, be careful\p"
-	.string "they're lighter thank you think\n"
+	.string "they're lighter thank you think.\n"
 	.string "I had one float away from me\p"
 	.string "like a balloon!$"
+
+LittlerootTown_ProfessorBirchsLab_Text_YoullTakePikachu:
+	.string "That's Pikachu, although you\p"
+	.string "probably already knew that.\n"
+	.string "It's shocking how cute they can be!$"
+
+LittlerootTown_ProfessorBirchsLab_Text_YoullTakeSandshrew:
+	.string "That's Sandshrew, they're known\p"
+	.string "to be a little shy at first but\n"
+	.string "don't worry, it's Sandshrew\p"
+	.string "not Sandshrewd!$"
