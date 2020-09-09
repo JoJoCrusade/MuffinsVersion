@@ -157,6 +157,12 @@ LittlerootTown_ProfessorBirchsLab_EventScript_GiveSandshrew::
 LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedWailmer::
 	hidemonpic
 	setvar VAR_BIRCH_LAB_STATE, 2
+	setflag FLAG_SYS_POKEDEX_GET
+	setflag FLAG_SYS_POKEMON_GET
+	setflag FLAG_SYS_NATIONAL_DEX
+	special SetUnlockedPokedexFlags
+	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
+	setvar VAR_CABLE_CLUB_TUTORIAL_STATE, 1
 	call LittlerootTown_ProfessorBirchsLab_EventScript_StartJourney
 	releaseall
 	end
@@ -542,51 +548,52 @@ LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall: @ 81FBD1A
 LittlerootTown_ProfessorBirchsLab_Text_IntroGreeting:
 	.string "Ah, just who I was waiting to see!\n"
 	.string "Hello {PLAYER}, thank you for stopping by\p"
-	.string "I appreciate the help\n"
-	.string "There have been rumors of a rare POKéMON\p"
-	.string "being seen in the mountain far north from here.\n"
-	.string "Everyone has been so busy\p"
-	.string "collecting gym badges.\n"
-	.string "They're not interested in the joy\p"
-	.string "of discovery!\n"
-	.string "Which is where you come in!\n"
-	.string "I know you have dreams other than\p"
-	.string "a POKéMON master. I need someone\n"
-	.string "with your love for the world\p"
-	.string "to go check out those rumors\n"
-	.string "Please, take one of my POKéMON\p"
-	.string "It'll be dangerous without one.\n"
-	.string "They're on the table next to me\p"
+	.string "There are rumors of a rare POKéMON\n"
+	.string "being seen in the mountains\p"
+	.string "far north from here.\p"
+	.string "Everyone has been so busy\n"
+	.string "collecting gym badges,\n"
+	.string "they're not interested in the joy\n"
+	.string "of discovery!\p"
+	.string "Which is where you come in!\p"
+	.string "I know you have dreams other than\n"
+	.string "being a POKéMON master.\n" 
+	.string "I need someone\n"
+	.string "with your love for the world\n"
+	.string "to go check out those rumors\p"
+	.string "Please, take one of my POKéMON\n"
+	.string "It'll be dangerous without one.\p"
 	.string "Don't worry you'll pick up on it quickly!$"
 
 LittlerootTown_ProfessorBirchsLab_TEXT_IntroJourneystart:
-	.string "Thank you, I know you can do it!\n"
-	.string "Head north of here to the next town\p"
-	.string "You'll be able to find supplies and maybe even\n"
-	.string "some trainers who will help you out\p"
+	.string "Thank you, I know you can do it!\p"
+	.string "Head north of here to the next town\n"
+	.string "You'll be able to find supplies\n"
+	.string "and maybe even meet some trainers\n"
+	.string "who will help you out along the way.\p"
 	.string "Good luck!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_WaitingStarterChoice:
-	.string "It can be dangerous to go alone\p"
+	.string "It can be dangerous to go alone\n"
 	.string "go ahead and take one of my POKéMON$"
 
 LittlerootTown_ProfessorBirchsLab_Text_StarterBeforeTalking:
-	.string "I better not take this\p"
+	.string "I better not take this\n"
 	.string "without asking the Professor$"
 
 LittlerootTown_ProfessorBirchsLab_Text_YoullTakeWailmer:
-	.string "That's Wailmer, be careful\p"
+	.string "That's Wailmer, be careful\n"
 	.string "they're lighter thank you think.\n"
-	.string "I had one float away from me\p"
+	.string "I had one float away from me\n"
 	.string "like a balloon!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_YoullTakePikachu:
-	.string "That's Pikachu, although you\p"
+	.string "That's Pikachu, although you\n"
 	.string "probably already knew that.\n"
 	.string "It's shocking how cute they can be!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_YoullTakeSandshrew:
-	.string "That's Sandshrew, they're known\p"
-	.string "to be a little shy at first but\n"
-	.string "don't worry, it's Sandshrew\p"
+	.string "That's Sandshrew, they're known\n"
+	.string "to be a little shy at first\p"
+	.string "but don't worry, it's Sandshrew\n"
 	.string "not Sandshrewd!$"

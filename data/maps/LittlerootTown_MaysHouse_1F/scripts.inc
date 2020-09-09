@@ -459,14 +459,14 @@ RivalsHouse_1F_Text_DoYouHavePokemon: @ 81F9262
 	.string "own POKéMON?$"
 
 YourHouse_1F_Text_MomGoodMorning:
-	.string "Good morning, {PLAYER}!\n"
-	.string "Don't forget\p"
+	.string "Good morning, {PLAYER}!\p"
+	.string "Don't forget\n"
 	.string "you promised the professor\n"
 	.string "that you would help her today!\p"
-	.string "Shes waiting for you at the lab.\n"
+	.string "Shes waiting for you at the lab.\p"
 	.string "You better get going!$"
 
 MaysHouse_1F_Text_MomGetGoing:
-	.string "The professor is waiting\p"
-	.string "for you at the lab.\n"
+	.string "The professor is waiting\n"
+	.string "for you at the lab.\p"
 	.string "You better get going!$"
