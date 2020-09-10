@@ -460,7 +460,7 @@ RivalsHouse_1F_Text_DoYouHavePokemon: @ 81F9262
 
 YourHouse_1F_Text_MomGoodMorning:
 	.string "Good morning, {PLAYER}!\p"
-	.string "Don't forget\n"
+	.string "Don't forget\p"
 	.string "you promised the professor\n"
 	.string "that you would help her today!\p"
 	.string "Shes waiting for you at the lab.\p"

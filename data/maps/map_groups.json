@@ -96,14 +96,16 @@
     "Underwater_Route125",
     "SandPearlTown",
     "SandPearlLab",
-    "Route1"
+    "Route1",
+    "NearSandTown"
   ],
   "gMapGroup1": [
     "LittlerootTown_BrendansHouse_1F",
     "LittlerootTown_BrendansHouse_2F",
     "LittlerootTown_MaysHouse_1F",
     "LittlerootTown_MaysHouse_2F",
-    "LittlerootTown_ProfessorBirchsLab"
+    "LittlerootTown_ProfessorBirchsLab",
+    "SandPearlTown_FishersHouse"
   ],
   "gMapGroup2": [
     "OldaleTown_House1",

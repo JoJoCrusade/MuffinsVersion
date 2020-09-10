@@ -29,6 +29,13 @@
       "elevation": 0,
       "dest_map": "MAP_NONE",
       "dest_warp_id": 127
+    },
+    {
+      "x": 19,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_SAND_PEARL_TOWN_FISHERS_HOUSE",
+      "dest_warp_id": 0
     }
   ],
   "coord_events": [

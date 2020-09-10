@@ -4434,12 +4434,32 @@
     {
       "id": "LAYOUT_ROUTE1",
       "name": "Route1_Layout",
-      "width": 27,
+      "width": 47,
       "height": 20,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Dewford",
       "border_filepath": "data/layouts/Route1/border.bin",
       "blockdata_filepath": "data/layouts/Route1/map.bin"
+    },
+    {
+      "id": "LAYOUT_NEAR_SAND_TOWN",
+      "name": "NearSandTown_Layout",
+      "width": 20,
+      "height": 22,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/NearSandTown/border.bin",
+      "blockdata_filepath": "data/layouts/NearSandTown/map.bin"
+    },
+    {
+      "id": "LAYOUT_SAND_PEARL_TOWN_FISHERS_HOUSE",
+      "name": "SandPearlTown_FishersHouse_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/SandPearlTown_FishersHouse/border.bin",
+      "blockdata_filepath": "data/layouts/SandPearlTown_FishersHouse/map.bin"
     }
   ]
 }

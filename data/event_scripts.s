@@ -1066,3 +1066,7 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/SandPearlLab/scripts.inc"
 
 	.include "data/maps/Route1/scripts.inc"
+
+	.include "data/maps/NearSandTown/scripts.inc"
+
+	.include "data/maps/SandPearlTown_FishersHouse/scripts.inc"
