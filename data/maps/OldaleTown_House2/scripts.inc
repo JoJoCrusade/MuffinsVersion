@@ -6,15 +6,25 @@ OldaleTown_House2_EventScript_Woman:: @ 81FBF5B
 	end
 
 OldaleTown_House2_EventScript_Man:: @ 81FBF64
+	goto_if_unset FLAG_ITEM_ROUTE_102_POTION, OldaleTown_House2_EventScript_Man_GivePotion
+	msgbox OldaleTown_House2_Text_ToBeYouthful, MSGBOX_NPC
+	end
+
+OldaleTown_House2_EventScript_Man_GivePotion::
 	msgbox OldaleTown_House2_Text_YoullGoFurtherWithStrongPokemon, MSGBOX_NPC
+	waitmessage
+	finditem ITEM_POTION
+	setflag FLAG_ITEM_ROUTE_102_POTION
 	end
 
 OldaleTown_House2_Text_PokemonLevelUp: @ 81FBF6D
-	.string "When POKéMON battle, they eventually\n"
-	.string "level up and become stronger.$"
+	.string "The caterpies here sure are strange$"
+
 
 OldaleTown_House2_Text_YoullGoFurtherWithStrongPokemon: @ 81FBFB0
-	.string "If the POKéMON with you become\n"
-	.string "stronger, you'll be able to go farther\l"
-	.string "away from here.$"
+	.string "You're just starting your adventure?\n"
+	.string "Oh to be youthful again\p"
+	.string "Have this, it should help you out$"
 
+OldaleTown_House2_Text_ToBeYouthful: @ 81FBFB0
+	.string "Oh to be youthful again$\p"
