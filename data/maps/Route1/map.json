@@ -15,7 +15,7 @@
   "connections": [
     {
       "direction": "up",
-      "offset": 28,
+      "offset": 22,
       "map": "MAP_NEAR_SAND_TOWN"
     },
     {
