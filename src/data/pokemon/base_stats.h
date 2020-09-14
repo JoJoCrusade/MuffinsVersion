@@ -328,10 +328,10 @@ const struct BaseStats gBaseStats[] =
 
     [SPECIES_CATERPIE] =
     {
-        .baseHP        = 45,
-        .baseAttack    = 30,
-        .baseDefense   = 35,
-        .baseSpeed     = 45,
+        .baseHP        = 55,
+        .baseAttack    = 50,
+        .baseDefense   = 45,
+        .baseSpeed     = 40,
         .baseSpAttack  = 20,
         .baseSpDefense = 20,
         .type1 = TYPE_BUG,

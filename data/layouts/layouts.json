@@ -4470,6 +4470,16 @@
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/Route2/border.bin",
       "blockdata_filepath": "data/layouts/Route2/map.bin"
+    },
+    {
+      "id": "LAYOUT_COOL_LAKE_CITY",
+      "name": "CoolLakeCity_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/CoolLakeCity/border.bin",
+      "blockdata_filepath": "data/layouts/CoolLakeCity/map.bin"
     }
   ]
 }
