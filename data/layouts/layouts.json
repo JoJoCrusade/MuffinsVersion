@@ -4474,8 +4474,8 @@
     {
       "id": "LAYOUT_COOL_LAKE_CITY",
       "name": "CoolLakeCity_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 55,
+      "height": 42,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/CoolLakeCity/border.bin",
