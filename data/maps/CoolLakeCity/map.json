@@ -15,7 +15,7 @@
   "connections": [
     {
       "direction": "right",
-      "offset": 36,
+      "offset": 34,
       "map": "MAP_ROUTE2"
     }
   ],
@@ -23,7 +23,20 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 41,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_COOL_LAKE_CITY_AQUARIUM",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 42,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_COOL_LAKE_CITY_AQUARIUM",
+      "dest_warp_id": 0
+    }
   ],
   "coord_events": [
 
