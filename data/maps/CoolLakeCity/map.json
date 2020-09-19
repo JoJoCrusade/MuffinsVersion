@@ -35,6 +35,41 @@
       "y": 12,
       "elevation": 0,
       "dest_map": "MAP_COOL_LAKE_CITY_AQUARIUM",
+      "dest_warp_id": 2
+    },
+    {
+      "x": 34,
+      "y": 27,
+      "elevation": 0,
+      "dest_map": "MAP_PETALBURG_CITY_POKEMON_CENTER_1F",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 44,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_PETALBURG_CITY_MART",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 8,
+      "y": 28,
+      "elevation": 0,
+      "dest_map": "MAP_PETALBURG_CITY_HOUSE1",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 19,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_PETALBURG_CITY_HOUSE2",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 18,
+      "y": 28,
+      "elevation": 0,
+      "dest_map": "MAP_RUSTBORO_CITY_GYM",
       "dest_warp_id": 0
     }
   ],

@@ -360,3 +360,6 @@ const u32 gObjectEventPic_Lugia[] = INCBIN_U32("graphics/object_events/pics/poke
 const u16 gObjectEventPalette32[] = INCBIN_U16("graphics/object_events/palettes/32.gbapal");
 const u32 gObjectEventPic_HoOh[] = INCBIN_U32("graphics/object_events/pics/pokemon/ho_oh.4bpp");
 const u16 gObjectEventPalette31[] = INCBIN_U16("graphics/object_events/palettes/31.gbapal");
+const u32 gObjectEventPic_Lapras[] = INCBIN_U32("graphics/object_events/pics/pokemon/lapras.4bpp");
+const u16 gObjectEventPalette_Lapras[] = INCBIN_U16("graphics/object_events/palettes/lapras.gbapal");
+const u32 gObjectEventPic_Totodile[] = INCBIN_U32("graphics/object_events/pics/pokemon/totodile.4bpp");
