@@ -1,2 +1,6 @@
+.set LOCAL_ID_GRUNT_GYM, 1
+.set LOCAL_ID_GRUNT_LEFT, 2
+.set LOCAL_ID_GRUNT_RIGHT, 3
+.set LOCAL_ID_GRUNT_BATTLE, 4
 CoolLakeCity_MapScripts::
 	.byte 0

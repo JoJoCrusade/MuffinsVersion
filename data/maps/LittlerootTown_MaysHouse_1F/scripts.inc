@@ -310,6 +310,7 @@ LittlerootTown_MaysHouse_1F_EventScript_MomWalkToStairs::
 	msgbox YourHouse_1F_Text_MomGoodMorning, MSGBOX_DEFAULT
 	closemessage
 	setvar VAR_LITTLEROOT_INTRO_STATE, 1
+	setrespawn HEAL_LOCATION_SAND_PEARL_TOWN
 	return
 
 LittlerootTown_MaysHouse_1F_Movement_PlayerWatchMayExit0: @ 81F8BA0

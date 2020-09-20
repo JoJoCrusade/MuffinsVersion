@@ -14,14 +14,14 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-        "direction": "right",
-        "offset": 6,
-        "map": "MAP_NEAR_SAND_TOWN"
+      "direction": "right",
+      "offset": 6,
+      "map": "MAP_NEAR_SAND_TOWN"
     },
     {
-        "direction": "left",
-        "offset": -32,
-        "map": "MAP_COOL_LAKE_CITY"
+      "direction": "left",
+      "offset": -34,
+      "map": "MAP_COOL_LAKE_CITY"
     }
   ],
   "object_events": [
