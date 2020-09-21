@@ -13,7 +13,7 @@ OldaleTown_House2_EventScript_Man:: @ 81FBF64
 OldaleTown_House2_EventScript_Man_GivePotion::
 	msgbox OldaleTown_House2_Text_YoullGoFurtherWithStrongPokemon, MSGBOX_NPC
 	waitmessage
-	finditem ITEM_POTION
+	giveitem ITEM_POTION
 	setflag FLAG_ITEM_ROUTE_102_POTION
 	end
 
