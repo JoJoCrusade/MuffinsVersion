@@ -101,6 +101,10 @@ CoolLakeCity_Aquarium_Event_GymLeaderSpawn::
 	waitmovement 0
 	msgbox CoolLakeCity_Aquarium_Text_GymLeader_HereToHelp, MSGBOX_DEFAULT
 	waitmessage
+	special SavePlayerParty
+	fadescreen FADE_TO_BLACK
+	special ChooseHalfPartyForBattle
+	waitstate
 	releaseall
 	end
 
