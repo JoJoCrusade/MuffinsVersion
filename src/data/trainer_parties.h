@@ -30,16 +30,26 @@ static const struct TrainerMonNoItemDefaultMoves sParty_GruntAquaHideout2[] = {
 static const struct TrainerMonNoItemDefaultMoves sParty_GruntAquaHideout3[] = {
     {
     .iv = 0,
-    .lvl = 32,
+    .lvl = 12,
     .species = SPECIES_ZUBAT,
+    },
+    {
+    .iv = 0,
+    .lvl = 11,
+    .species = SPECIES_SEVIPER,
     }
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_GruntAquaHideout4[] = {
     {
     .iv = 0,
-    .lvl = 32,
+    .lvl = 12,
     .species = SPECIES_CARVANHA,
+    },
+    {
+    .iv = 0,
+    .lvl = 11,
+    .species = SPECIES_GRIMER,
     }
 };
 

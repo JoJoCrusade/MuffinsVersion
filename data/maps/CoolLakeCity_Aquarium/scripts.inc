@@ -126,11 +126,25 @@ CoolLakeCity_Aquarium_Event_GymLeaderSpawn::
 	special LoadPlayerParty
 	switch VAR_RESULT
 	case 1, MossdeepCity_SpaceCenter_2F_EventScript_DefeatedMaxieTabitha
+	case 2, CoolLakeCity_Aquarium_Event_GoodEffort
 	fadescreen FADE_TO_BLACK
 	special SetCB2WhiteOut
 	waitstate
 	releaseall
 	end
+
+CoolLakeCity_Aquarium_Event_GoodEffort::
+	msgbox CoolLakeCity_Aquarium_Text, MSGBOX_DEFAULT
+	end
+
+CoolLakeCity_Aquarium_Event_GruntTainer_F::
+	trainerbattle TRAINER_BATTLE_SET_TRAINER_A, TRAINER_GRUNT_AQUA_HIDEOUT_3, 0, MossdeepCity_SpaceCenter_2F_Text_JustWantToExpandLand, MossdeepCity_SpaceCenter_2F_Text_JustWantToExpandLand
+	end
+
+CoolLakeCity_Aquarium_Event_GruntTainer_M::
+	trainerbattle TRAINER_BATTLE_SET_TRAINER_B, TRAINER_GRUNT_AQUA_HIDEOUT_4, 0, MossdeepCity_SpaceCenter_2F_Text_JustWantToExpandLand, MossdeepCity_SpaceCenter_2F_Text_JustWantToExpandLand
+	end
+
 
 CoolLakeCity_Aquarium_Event_GymLeaderApproach1::
 	applymovement LOCAL_ID_GYM_LEADER, CoolLakeCity_Aquarium_Movement_GymApproach1
@@ -178,6 +192,12 @@ CoolLakeCity_Aquarium_Text_GruntConfronted:
 	.string "I don't know how you made it\n"
 	.string "this far\p"
 	.string "but it's the end of the line for you!$"
+
+CoolLakeCity_Aquarium_Text:
+	.string "Are you ok?.\n"
+	.string "Don't worr,\p"
+	.string "I managed to scare them off\n"
+	.string "Thanks to your help.$"
 
 
 CoolLakeCity_Aquarium_Movement_GymApproach2:
