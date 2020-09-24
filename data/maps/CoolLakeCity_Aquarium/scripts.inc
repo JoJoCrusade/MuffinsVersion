@@ -1,8 +1,10 @@
+.set LOCAL_ID_TOTODILE, 4
 .SET LOCAL_ID_GRUNT_DOWN, 5
 .set LOCAL_ID_GRUNT_UP, 6
 .set LOCAL_ID_GRUNT_LEFT, 8
 .set LOCAL_ID_GRUNT_RIGHT, 9
 .set LOCAL_ID_GYM_LEADER, 10
+
 
 CoolLakeCity_Aquarium_MapScripts::
 	.byte 0
@@ -125,16 +127,102 @@ CoolLakeCity_Aquarium_Event_GymLeaderSpawn::
 	frontier_saveparty
 	special LoadPlayerParty
 	switch VAR_RESULT
-	case 1, MossdeepCity_SpaceCenter_2F_EventScript_DefeatedMaxieTabitha
-	case 2, CoolLakeCity_Aquarium_Event_GoodEffort
-	fadescreen FADE_TO_BLACK
-	special SetCB2WhiteOut
-	waitstate
+	case 1, CoolLakeCity_Aquarium_Event_MultiBattleWon
+	goto CoolLakeCity_Aquarium_Event_GoodEffort
 	releaseall
 	end
 
 CoolLakeCity_Aquarium_Event_GoodEffort::
-	msgbox CoolLakeCity_Aquarium_Text, MSGBOX_DEFAULT
+	fadescreen FADE_TO_WHITE
+	setflag FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_AQUA_GRUNTS
+	setflag FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_2F_AQUA_GRUNT_1
+	fadescreen FADE_FROM_WHITE
+	msgbox CoolLakeCity_Aquarium_Text_GoodEffort, MSGBOX_DEFAULT
+	waitmessage
+	goto CoolLakeCity_Aquarium_Event_GruntsGone
+	end
+
+CoolLakeCity_Aquarium_Event_MultiBattleWon::
+	setflag FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_AQUA_GRUNTS
+	applymovement LOCAL_ID_GRUNT_UP, Common_Movement_FaceDown
+	applymovement LOCAL_ID_GRUNT_DOWN, Common_Movement_FaceUp
+	waitmovement 0
+	msgbox CoolLakeCity_Aquarium_Text_MultiBattleWon, MSGBOX_DEFAULT
+	waitmessage
+	switch VAR_0x8008
+	case 1, CoolLakeCity_Aquarium_Event_GruntsLeaveRight
+	case 2, CoolLakeCity_Aquarium_Event_GruntsLeaveRight
+	goto CoolLakeCity_Aquarium_Event_GruntsLeaveDown
+	end
+
+CoolLakeCity_Aquarium_Event_GruntsLeaveDown::
+	applymovement LOCAL_ID_GRUNT_UP, Common_Movement_FaceDown
+	applymovement LOCAL_ID_GRUNT_DOWN, Common_Movement_FaceDown
+	waitmovement 0
+	applymovement LOCAL_ID_GRUNT_UP, CoolLakeCity_Aquarium_Movement_GruntsLeaveDown
+	applymovement LOCAL_ID_GRUNT_DOWN, Common_Movement_WalkDown
+	applymovement LOCAL_ID_GRUNT_DOWN, CoolLakeCity_Aquarium_Movement_GruntsLeaveDown
+	waitmovement 0
+	goto CoolLakeCity_Aquarium_Event_GruntsGone
+	end
+
+CoolLakeCity_Aquarium_Event_GruntsGone::
+	setflag FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_AQUA_GRUNTS
+	setflag FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_2F_AQUA_GRUNT_1
+	removeobject LOCAL_ID_GRUNT_DOWN
+	removeobject LOCAL_ID_GRUNT_UP
+	applymovement LOCAL_ID_TOTODILE, Common_Movement_FaceRight
+	waitmovement 0
+	applymovement LOCAL_ID_TOTODILE, Common_Movement_HeartMark
+	waitmovement 0
+	msgbox CoolLakeCity_Aquarium_Text_Totodile, MSGBOX_DEFAULT
+	waitmessage
+	goto CoolLakeCity_Aquarium_Event_GetTotodile
+	end
+
+CoolLakeCity_Aquarium_Event_GetTotodile::
+	bufferspeciesname 0, SPECIES_TOTODILE
+	setvar VAR_TEMP_1, SPECIES_TOTODILE
+	givemon SPECIES_TOTODILE, 5, ITEM_NONE
+	compare VAR_RESULT, 0
+	goto_if_eq CoolLakeCity_EventScript_SendTotodileToParty
+	compare VAR_RESULT, 1
+	goto_if_eq CoolLakeCity_EventScript_SendTotodileToPC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+CoolLakeCity_EventScript_SendTotodileToParty::
+	removeobject LOCAL_ID_TOTODILE
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq CoolLakeCity_Aquarium_Event_ReceivedTotodile
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto CoolLakeCity_Aquarium_Event_ReceivedTotodile
+	end
+
+CoolLakeCity_EventScript_SendTotodileToPC::
+	removeobject LOCAL_ID_TOTODILE
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq CoolLakeCity_Aquarium_EventScript_TotodileTransferredToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto CoolLakeCity_Aquarium_EventScript_TotodileTransferredToPC
+	end
+
+CoolLakeCity_Aquarium_EventScript_TotodileTransferredToPC::
+	call Common_EventScript_TransferredToPC
+	goto CoolLakeCity_Aquarium_Event_ReceivedTotodile
+	end
+
+CoolLakeCity_Aquarium_Event_ReceivedTotodile::
+	setflag FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_2F_AQUA_GRUNT_2
+	msgbox CoolLakeCity_Aquarium_Text_VisitMyGym, MSGBOX_AUTOCLOSE
+	fadescreen FADE_TO_BLACK
+	removeobject LOCAL_ID_GYM_LEADER
+	setvar VAR_SLATEPORT_MUSEUM_1F_STATE, 2
+	fadescreen FADE_FROM_BLACK
+	releaseall
 	end
 
 CoolLakeCity_Aquarium_Event_GruntTainer_F::
@@ -195,9 +283,30 @@ CoolLakeCity_Aquarium_Text_GruntConfronted:
 
 CoolLakeCity_Aquarium_Text:
 	.string "Are you ok?.\n"
-	.string "Don't worr,\p"
+	.string "Don't worry,\p"
 	.string "I managed to scare them off\n"
 	.string "Thanks to your help.$"
+
+CoolLakeCity_Aquarium_Text_Totodile:
+	.string "Oh, Totodile seems really\n"
+	.string "greatfull for the help!\p"
+	.string "You know what, I think\p"
+	.string "Totodile can tell you have\n"
+	.string "a kind heart. I know!\p"
+	.string "How about you\n"
+	.string "let Totodile join your adventure!\p"
+	.string "I insist, and it looks\n"
+	.string "Totodile does too.\p"
+	.string "Ha, so it's settled!$"
+
+CoolLakeCity_Aquarium_Text_VisitMyGym:
+	.string "Phew, well I'm glad that's over\p"
+	.string "I should get back to the gym\n"
+	.string "You're heading to the mountains?\p"
+	.string "Make sure you stop by\n"
+	.string "I have something that\p"
+	.string "Can help you out\n"
+	.string "on your journey.$"
 
 
 CoolLakeCity_Aquarium_Movement_GymApproach2:
