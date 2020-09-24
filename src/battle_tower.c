@@ -1451,7 +1451,7 @@ u8 GetFrontierOpponentClass(u16 trainerId)
     }
     else if (trainerId == TRAINER_STEVEN_PARTNER)
     {
-        trainerClass = gTrainers[TRAINER_STEVEN].trainerClass;
+        trainerClass = gTrainers[TRAINER_ROXANNE_1].trainerClass;
     }
     else if (trainerId < FRONTIER_TRAINERS_COUNT)
     {
@@ -1538,7 +1538,7 @@ void GetFrontierTrainerName(u8 *dst, u16 trainerId)
     else if (trainerId == TRAINER_STEVEN_PARTNER)
     {
         for (i = 0; i < PLAYER_NAME_LENGTH; i++)
-            dst[i] = gTrainers[TRAINER_STEVEN].trainerName[i];
+            dst[i] = gTrainers[TRAINER_ROXANNE_1].trainerName[i];
     }
     else if (trainerId < FRONTIER_TRAINERS_COUNT)
     {
