@@ -101,9 +101,33 @@ CoolLakeCity_Aquarium_Event_GymLeaderSpawn::
 	waitmovement 0
 	msgbox CoolLakeCity_Aquarium_Text_GymLeader_HereToHelp, MSGBOX_DEFAULT
 	waitmessage
+	setvar VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_MULTIS
+	setvar VAR_FRONTIER_FACILITY, FRONTIER_FACILITY_TOWER
+	clearflag FLAG_CHOSEN_MULTI_BATTLE_NPC_PARTNER
 	special SavePlayerParty
-	fadescreen FADE_TO_BLACK
+	setvar VAR_0x8005, FRONTIER_MULTI_PARTY_SIZE
 	special ChooseHalfPartyForBattle
+	waitstate
+	compare VAR_RESULT, 0
+	goto_if_eq BattleFrontier_BattleTowerLobby_EventScript_LoadPartyCancelChallenge
+	frontier_set FRONTIER_DATA_SELECTED_MON_ORDER
+	setvar VAR_TEMP_0, 0
+	tower_init
+	tower_set TOWER_DATA_WIN_STREAK_ACTIVE, TRUE
+	frontier_set FRONTIER_DATA_PAUSED, FALSE
+	delay 2
+	incrementgamestat GAME_STAT_ENTERED_BATTLE_TOWER
+	setvar VAR_BRAVO_TRAINER_BATTLE_TOWER_ON, FALSE
+	setvar VAR_0x8004, SPECIAL_BATTLE_STEVEN
+	setvar VAR_0x8005, 0
+	special DoSpecialTrainerBattle
+	waitstate
+	frontier_saveparty
+	special LoadPlayerParty
+	switch VAR_RESULT
+	case 1, MossdeepCity_SpaceCenter_2F_EventScript_DefeatedMaxieTabitha
+	fadescreen FADE_TO_BLACK
+	special SetCB2WhiteOut
 	waitstate
 	releaseall
 	end

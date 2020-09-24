@@ -644,7 +644,7 @@ static void CB2_InitBattleInternal(void)
 
     gBattle_WIN0H = 240;
 
-    if (gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER && gPartnerTrainerId != TRAINER_STEVEN_PARTNER)
+    if (gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER)
     {
         gBattle_WIN0V = 159;
         gBattle_WIN1H = 240;

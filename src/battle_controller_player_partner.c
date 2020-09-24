@@ -1300,9 +1300,9 @@ static void PlayerPartnerHandleDrawTrainerPic(void)
 
     if (gPartnerTrainerId == TRAINER_STEVEN_PARTNER)
     {
-        trainerPicId = TRAINER_BACK_PIC_STEVEN;
-        xPos = 90;
-        yPos = (8 - gTrainerBackPicCoords[trainerPicId].size) * 4 + 80;
+        trainerPicId = 3;
+        xPos = 32;
+        yPos = (8 - gTrainerFrontPicCoords[trainerPicId].size) * 4 + 80;
     }
     else
     {
@@ -1311,20 +1311,7 @@ static void PlayerPartnerHandleDrawTrainerPic(void)
         yPos = (8 - gTrainerFrontPicCoords[trainerPicId].size) * 4 + 80;
     }
 
-    // Use back pic only if the partner is Steven
-    if (gPartnerTrainerId == TRAINER_STEVEN_PARTNER)
-    {
-        DecompressTrainerBackPic(trainerPicId, gActiveBattler);
-        SetMultiuseSpriteTemplateToTrainerBack(trainerPicId, GetBattlerPosition(gActiveBattler));
-        gBattlerSpriteIds[gActiveBattler] = CreateSprite(&gMultiuseSpriteTemplate, xPos, yPos, GetBattlerSpriteSubpriority(gActiveBattler));
-
-        gSprites[gBattlerSpriteIds[gActiveBattler]].oam.paletteNum = gActiveBattler;
-        gSprites[gBattlerSpriteIds[gActiveBattler]].pos2.x = 240;
-        gSprites[gBattlerSpriteIds[gActiveBattler]].data[0] = -2;
-        gSprites[gBattlerSpriteIds[gActiveBattler]].callback = sub_805D7AC;
-    }
-    else // otherwise use front sprite
-    {
+  
         DecompressTrainerFrontPic(trainerPicId, gActiveBattler);
         SetMultiuseSpriteTemplateToTrainerFront(trainerPicId, GetBattlerPosition(gActiveBattler));
         gBattlerSpriteIds[gActiveBattler] = CreateSprite(&gMultiuseSpriteTemplate, xPos, yPos, GetBattlerSpriteSubpriority(gActiveBattler));
@@ -1336,7 +1323,7 @@ static void PlayerPartnerHandleDrawTrainerPic(void)
         gSprites[gBattlerSpriteIds[gActiveBattler]].callback = sub_805D7AC;
         gSprites[gBattlerSpriteIds[gActiveBattler]].oam.affineMode = ST_OAM_AFFINE_OFF;
         gSprites[gBattlerSpriteIds[gActiveBattler]].hFlip = 1;
-    }
+
 
     gBattlerControllerFuncs[gActiveBattler] = CompleteOnBattlerSpriteCallbackDummy;
 }
@@ -1785,8 +1772,8 @@ static void PlayerPartnerHandleIntroTrainerBallThrow(void)
     paletteNum = AllocSpritePalette(0xD6F9);
     if (gPartnerTrainerId == TRAINER_STEVEN_PARTNER)
     {
-        u8 spriteId = TRAINER_BACK_PIC_STEVEN;
-        LoadCompressedPalette(gTrainerBackPicPaletteTable[spriteId].data, 0x100 + paletteNum * 16, 32);
+        u8 spriteId = 3;
+        LoadCompressedPalette(gTrainerFrontPicPaletteTable[spriteId].data, 0x100 + paletteNum * 16, 32);
     }
     else
     {

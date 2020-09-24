@@ -1142,7 +1142,7 @@ void DrawBattleEntryBackground(void)
     }
     else if (gBattleTypeFlags & (BATTLE_TYPE_FRONTIER | BATTLE_TYPE_LINK | BATTLE_TYPE_x2000000 | BATTLE_TYPE_EREADER_TRAINER))
     {
-        if (!(gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER) || gPartnerTrainerId == TRAINER_STEVEN_PARTNER)
+        if (!gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER)
         {
             LZDecompressVram(gBattleTerrainAnimTiles_Building, (void*)(BG_CHAR_ADDR(1)));
             LZDecompressVram(gBattleTerrainAnimTilemap_Building, (void*)(BG_SCREEN_ADDR(28)));
@@ -1156,6 +1156,15 @@ void DrawBattleEntryBackground(void)
             CopyBgTilemapBufferToVram(1);
             CopyBgTilemapBufferToVram(2);
         }
+    }
+    else if (gBattleTypeFlags  & BATTLE_TYPE_TRAINER && BATTLE_TYPE_INGAME_PARTNER)
+    {
+        SetBgAttribute(1, BG_ATTR_CHARBASEINDEX, 2);
+        SetBgAttribute(2, BG_ATTR_CHARBASEINDEX, 2);
+        CopyToBgTilemapBuffer(1, gUnknown_08D857A8, 0, 0);
+        CopyToBgTilemapBuffer(2, gUnknown_08D85A1C, 0, 0);
+        CopyBgTilemapBufferToVram(1);
+        CopyBgTilemapBufferToVram(2);
     }
     else if (gBattleTypeFlags & BATTLE_TYPE_GROUDON)
     {
