@@ -166,6 +166,18 @@ CoolLakeCity_Aquarium_Event_GruntsLeaveDown::
 	goto CoolLakeCity_Aquarium_Event_GruntsGone
 	end
 
+CoolLakeCity_Aquarium_Event_GruntsLeaveRight::
+	applymovement LOCAL_ID_GRUNT_UP, Common_Movement_WalkRight
+	applymovement LOCAL_ID_GRUNT_DOWN, Common_Movement_WalkRight
+	waitmovement 0
+	applymovement LOCAL_ID_GRUNT_DOWN, CoolLakeCity_Aquarium_Movement_GruntsLeaveRight
+	applymovement LOCAL_ID_GRUNT_UP, Common_Movement_WalkDown
+	waitmovement LOCAL_ID_GRUNT_UP
+	applymovement LOCAL_ID_GRUNT_UP, CoolLakeCity_Aquarium_Event_GruntsLeaveRight
+	waitmovement 0
+	goto CoolLakeCity_Aquarium_Event_GruntsGone
+	end
+
 CoolLakeCity_Aquarium_Event_GruntsGone::
 	setflag FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_AQUA_GRUNTS
 	setflag FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_2F_AQUA_GRUNT_1
@@ -281,7 +293,12 @@ CoolLakeCity_Aquarium_Text_GruntConfronted:
 	.string "this far\p"
 	.string "but it's the end of the line for you!$"
 
-CoolLakeCity_Aquarium_Text:
+CoolLakeCity_Aquarium_Text_MultiBattleWon:
+	.string "Good battling out there!\p"
+	.string "We shouldn't have any problems\n"
+	.string "with them after that beatdown.$"
+
+CoolLakeCity_Aquarium_Text_GoodEffort:
 	.string "Are you ok?.\n"
 	.string "Don't worry,\p"
 	.string "I managed to scare them off\n"
@@ -365,4 +382,34 @@ CoolLakeCity_Aquarium_Movement_GymApproach1:
 	walk_up
 	walk_up
 	walk_up
+	step_end
+
+CoolLakeCity_Aquarium_Movement_GruntsLeaveDown:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	step_end
+
+CoolLakeCity_Aquarium_Movement_GruntsLeaveRight:
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	walk_down
 	step_end
