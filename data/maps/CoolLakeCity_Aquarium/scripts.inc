@@ -156,8 +156,9 @@ CoolLakeCity_Aquarium_Event_MultiBattleWon::
 	applymovement LOCAL_ID_GRUNT_UP, Common_Movement_FaceDown
 	applymovement LOCAL_ID_GRUNT_DOWN, Common_Movement_FaceUp
 	waitmovement 0
-	msgbox CoolLakeCity_Aquarium_Text_MultiBattleWon, MSGBOX_DEFAULT
+	msgbox CoolLakeCity_Aquarium_Text_GruntsLeaving, MSGBOX_DEFAULT
 	waitmessage
+	closemessage
 	switch VAR_0x8008
 	case 1, CoolLakeCity_Aquarium_Event_GruntsLeaveRight
 	case 2, CoolLakeCity_Aquarium_Event_GruntsLeaveRight
@@ -189,11 +190,14 @@ CoolLakeCity_Aquarium_Event_GruntsLeaveRight::
 	end
 
 CoolLakeCity_Aquarium_Event_GruntsGone::
+	msgbox CoolLakeCity_Aquarium_Text_MultiBattleWon, MSGBOX_DEFAULT
+	waitmessage
+	closemessage
 	setflag FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_AQUA_GRUNTS
 	setflag FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_2F_AQUA_GRUNT_1
 	removeobject LOCAL_ID_GRUNT_DOWN
 	removeobject LOCAL_ID_GRUNT_UP
-	applymovement LOCAL_ID_TOTODILE, Common_Movement_FaceRight
+	applymovement LOCAL_ID_TOTODILE, Common_Movement_WalkRight
 	waitmovement 0
 	applymovement LOCAL_ID_TOTODILE, Common_Movement_HeartMark
 	waitmovement 0
@@ -334,6 +338,11 @@ CoolLakeCity_Aquarium_Text_VisitMyGym:
 	.string "I have something that\p"
 	.string "Can help you out\n"
 	.string "on your journey.$"
+
+CoolLakeCity_Aquarium_Text_GruntsLeaving:
+	.string "Forget the POKEMON We need\n"
+	.string "to get out of here.\p"
+	.string "You'll regret messing with us!$"
 
 
 CoolLakeCity_Aquarium_Movement_GymApproach2:
