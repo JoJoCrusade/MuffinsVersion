@@ -1483,8 +1483,10 @@ static void Task_NewGameBirchSpeech_WaitForPlayerFadeIn(u8 taskId)
 {
     if (gTasks[taskId].tIsDoneFadingSprites)
     {
-        gSprites[gTasks[taskId].tPlayerSpriteId].oam.objMode = ST_OAM_OBJ_NORMAL;
-        gTasks[taskId].func = Task_NewGameBirchSpeech_BoyOrGirl;
+        gSprites[gTasks[taskId].tPlayerSpriteId].oam.objMode = 0;
+        gSaveBlock2Ptr->playerGender = FEMALE;
+        gTasks[taskId].func = Task_NewGameBirchSpeech_StartNamingScreen;
+        //gTasks[taskId].func = Task_NewGameBirchSpeech_BoyOrGirl;
     }
 }
 

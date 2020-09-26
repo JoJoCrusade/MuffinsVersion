@@ -6,6 +6,11 @@
 CoolLakeCity_MapScripts::
 	.byte 0
 
+
+CoolLakeCity_Event_CheatMon::
+	givemon SPECIES_MEWTWO, 50, ITEM_NONE
+	end
+
 CoolLakeCity_Event_GetPositionLeft::
 	setflag FLAG_TEMP_1
 	call CoolLakeCity_Event_GruntsTalking
