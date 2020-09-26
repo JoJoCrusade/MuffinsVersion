@@ -168,9 +168,10 @@ CoolLakeCity_Aquarium_Event_GruntsLeaveDown::
 	applymovement LOCAL_ID_GRUNT_UP, Common_Movement_FaceDown
 	applymovement LOCAL_ID_GRUNT_DOWN, Common_Movement_FaceDown
 	waitmovement 0
-	applymovement LOCAL_ID_GRUNT_UP, CoolLakeCity_Aquarium_Movement_GruntsLeaveDown
-	applymovement LOCAL_ID_GRUNT_DOWN, Common_Movement_WalkDown
 	applymovement LOCAL_ID_GRUNT_DOWN, CoolLakeCity_Aquarium_Movement_GruntsLeaveDown
+	applymovement LOCAL_ID_GRUNT_UP, Common_Movement_WalkDown
+	waitmovement LOCAL_ID_GRUNT_UP
+	applymovement LOCAL_ID_GRUNT_UP, CoolLakeCity_Aquarium_Movement_GruntsLeaveDown
 	waitmovement 0
 	goto CoolLakeCity_Aquarium_Event_GruntsGone
 	end
@@ -182,7 +183,7 @@ CoolLakeCity_Aquarium_Event_GruntsLeaveRight::
 	applymovement LOCAL_ID_GRUNT_DOWN, CoolLakeCity_Aquarium_Movement_GruntsLeaveRight
 	applymovement LOCAL_ID_GRUNT_UP, Common_Movement_WalkDown
 	waitmovement LOCAL_ID_GRUNT_UP
-	applymovement LOCAL_ID_GRUNT_UP, CoolLakeCity_Aquarium_Event_GruntsLeaveRight
+	applymovement LOCAL_ID_GRUNT_UP, CoolLakeCity_Aquarium_Movement_GruntsLeaveRight
 	waitmovement 0
 	goto CoolLakeCity_Aquarium_Event_GruntsGone
 	end
