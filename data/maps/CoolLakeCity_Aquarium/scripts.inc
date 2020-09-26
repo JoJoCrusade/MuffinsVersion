@@ -19,7 +19,6 @@ CoolLakeCity_Aquarium_Event_LeftEntrance::
 	waitmovement 0
 	msgbox CoolLakeCity_Aquarium_Text_EntranceMessage, MSGBOX_DEFAULT
 	waitmessage
-	setvar VAR_SLATEPORT_MUSEUM_1F_STATE, 1
 	releaseall
 	goto CoolLakeCity_Aquarium_Event_EntranceBattleLeft
 	end
@@ -32,18 +31,19 @@ CoolLakeCity_Aquarium_Event_RightEntrance::
 	waitmovement 0
 	msgbox CoolLakeCity_Aquarium_Text_EntranceMessage, MSGBOX_DEFAULT
 	waitmessage
-	setvar VAR_SLATEPORT_MUSEUM_1F_STATE, 1
 	releaseall
 	goto CoolLakeCity_Aquarium_Event_EntranceBattleRight
 	end
 	
 CoolLakeCity_Aquarium_Event_EntranceBattleLeft::
-	trainerbattle_single TRAINER_GRUNT_SEAFLOOR_CAVERN_4, CoolLakeCity_Aquarium_GruntIntro, CoolLakeCity_Aquarium_Text_GruntDefeated
+	trainerbattle_single TRAINER_GRUNT_SEAFLOOR_CAVERN_4, CoolLakeCity_Aquarium_GruntIntro, CoolLakeCity_Aquarium_Text_GruntDefeated, CoolLakeCity_Aquarium_Event_EntranceBattleLeft
 	msgbox CoolLakeCity_Aquarium_Text_GruntEntranceLeft_Defeated, MSGBOX_AUTOCLOSE
+	setvar VAR_SLATEPORT_MUSEUM_1F_STATE, 1
 	end
 
 CoolLakeCity_Aquarium_Event_EntranceBattleRight::
-	trainerbattle_single TRAINER_GRUNT_RUSTURF_TUNNEL, CoolLakeCity_Aquarium_GruntIntro, CoolLakeCity_Aquarium_Text_GruntDefeated
+	trainerbattle_single TRAINER_GRUNT_RUSTURF_TUNNEL, CoolLakeCity_Aquarium_GruntIntro, CoolLakeCity_Aquarium_Text_GruntDefeated, CoolLakeCity_Aquarium_Event_EntranceBattleRight
+	setvar VAR_SLATEPORT_MUSEUM_1F_STATE, 1
 	msgbox CoolLakeCity_Aquarium_Text_GruntEntranceLeft_Defeated, MSGBOX_AUTOCLOSE
 	end
 
