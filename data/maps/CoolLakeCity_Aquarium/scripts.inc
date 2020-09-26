@@ -1,6 +1,7 @@
 .set LOCAL_ID_TOTODILE, 4
 .SET LOCAL_ID_GRUNT_DOWN, 5
 .set LOCAL_ID_GRUNT_UP, 6
+.set LOCAL_ID_GRUNT_POOL, 7
 .set LOCAL_ID_GRUNT_LEFT, 8
 .set LOCAL_ID_GRUNT_RIGHT, 9
 .set LOCAL_ID_GYM_LEADER, 10
@@ -108,6 +109,11 @@ CoolLakeCity_Aquarium_Event_GymLeaderSpawn::
 	clearflag FLAG_CHOSEN_MULTI_BATTLE_NPC_PARTNER
 	special SavePlayerParty
 	setvar VAR_0x8005, FRONTIER_MULTI_PARTY_SIZE
+	fadescreen FADE_TO_BLACK
+	delay 15
+	removeobject LOCAL_ID_GRUNT_LEFT
+	removeobject LOCAL_ID_GRUNT_POOL
+	setflag FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_AQUA_GRUNTS
 	special ChooseHalfPartyForBattle
 	waitstate
 	compare VAR_RESULT, 0
@@ -134,8 +140,11 @@ CoolLakeCity_Aquarium_Event_GymLeaderSpawn::
 
 CoolLakeCity_Aquarium_Event_GoodEffort::
 	fadescreen FADE_TO_WHITE
-	setflag FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_AQUA_GRUNTS
+	special HealPlayerParty
+	removeobject LOCAL_ID_GRUNT_UP
+	removeobject LOCAL_ID_GRUNT_DOWN
 	setflag FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_2F_AQUA_GRUNT_1
+	delay 30
 	fadescreen FADE_FROM_WHITE
 	msgbox CoolLakeCity_Aquarium_Text_GoodEffort, MSGBOX_DEFAULT
 	waitmessage
