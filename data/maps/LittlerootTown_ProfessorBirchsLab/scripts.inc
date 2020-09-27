@@ -164,6 +164,15 @@ LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedWailmer::
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
 	setvar VAR_CABLE_CLUB_TUTORIAL_STATE, 1
 	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_BIRCH
+	call LittlerootTown_ProfessorBirchsLab_EventScript_GivePokeballs
+	releaseall
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_GivePokeballs::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_GivePokeBalls, MSGBOX_DEFAULT
+	waitmessage
+	closemessage
+	giveitem ITEM_POKE_BALL, 5
 	call LittlerootTown_ProfessorBirchsLab_EventScript_StartJourney
 	releaseall
 	end
@@ -548,20 +557,21 @@ LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall: @ 81FBD1A
 
 LittlerootTown_ProfessorBirchsLab_Text_IntroGreeting:
 	.string "Ah, just who I was waiting to see!\n"
-	.string "Hello {PLAYER}, thank you for stopping by\p"
-	.string "There are rumors of a rare POKéMON\n"
+	.string "Hello {PLAYER},\p 
+	.string "Thank you for stopping by.\p"
+	.string "There are rumors of a rare POKéMON\p"
 	.string "being seen in the mountains\p"
 	.string "far north from here.\p"
 	.string "Everyone has been so busy\n"
 	.string "collecting gym badges,\p"
 	.string "that they aren't interested in the joy\n"
-	.string "in the joy of discovery!\p"
-	.string "Which is where you come in!\p"
+	.string "of discovery!\p"
+	.string "Which is where you come in.\p"
 	.string "I know you have dreams other than\n"
 	.string "being a POKéMON master.\p" 
 	.string "I need someone\n"
 	.string "with your love for the world\p"
-	.string "to go check out those rumors\p"
+	.string "to go check out those rumors.\p"
 	.string "Please, take one of my POKéMON\n"
 	.string "It'll be dangerous without one.\p"
 	.string "Don't worry you'll pick up on it quickly!$"
@@ -575,8 +585,8 @@ LittlerootTown_ProfessorBirchsLab_TEXT_IntroJourneystart:
 	.string "Good luck!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_WaitingStarterChoice:
-	.string "It can be dangerous to go alone\n"
-	.string "go ahead and take one of my POKéMON$"
+	.string "It can be dangerous to go alone.\n"
+	.string "Go ahead and take one of my POKéMON$"
 
 LittlerootTown_ProfessorBirchsLab_Text_StarterBeforeTalking:
 	.string "I better not take this\n"
