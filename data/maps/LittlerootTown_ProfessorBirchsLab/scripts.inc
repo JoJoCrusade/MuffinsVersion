@@ -163,6 +163,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedWailmer::
 	special SetUnlockedPokedexFlags
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
 	setvar VAR_CABLE_CLUB_TUTORIAL_STATE, 1
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_BIRCH
 	call LittlerootTown_ProfessorBirchsLab_EventScript_StartJourney
 	releaseall
 	end
