@@ -9274,12 +9274,12 @@ const struct BaseStats gBaseStats[] =
 
     [SPECIES_WAILMER] =
     {
-        .baseHP        = 130,
-        .baseAttack    = 70,
-        .baseDefense   = 35,
-        .baseSpeed     = 60,
-        .baseSpAttack  = 70,
-        .baseSpDefense = 35,
+        .baseHP        = 95,
+        .baseAttack    = 40,
+        .baseDefense   = 30,
+        .baseSpeed     = 50,
+        .baseSpAttack  = 40,
+        .baseSpDefense = 45,
         .type1 = TYPE_WATER,
         .type2 = TYPE_WATER,
         .catchRate = 125,

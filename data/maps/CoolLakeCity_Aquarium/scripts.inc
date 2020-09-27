@@ -311,8 +311,8 @@ CoolLakeCity_Aquarium_Text_GruntConfronted:
 	.string "As if we don't have enough\n"
 	.string "problems already.\p"
 	.string "I don't know how you made it\n"
-	.string "this far\p"
-	.string "but it's the end of the line for you!$"
+	.string "this far.\p"
+	.string "But it's the end of the line for you!$"
 
 CoolLakeCity_Aquarium_Text_MultiBattleWon:
 	.string "Good battling out there!\p"
@@ -330,7 +330,7 @@ CoolLakeCity_Aquarium_Text_Totodile:
 	.string "greatfull for the help!\p"
 	.string "You know what, I think\p"
 	.string "Totodile can tell you have\n"
-	.string "a kind heart. I know!\p"
+	.string "a kind heart. Oh!\p"
 	.string "How about you\n"
 	.string "let Totodile join your adventure!\p"
 	.string "I insist, and it looks\n"
@@ -338,21 +338,21 @@ CoolLakeCity_Aquarium_Text_Totodile:
 	.string "Ha, so it's settled!$"
 
 CoolLakeCity_Aquarium_Text_VisitMyGym:
-	.string "Phew, well I'm glad that's over\p"
-	.string "I should get back to the gym\n"
+	.string "Phew, well I'm glad that's over.\p"
+	.string "I should get back to the gym.\n"
 	.string "You're heading to the mountains?\p"
-	.string "Make sure you stop by\n"
+	.string "Make sure you stop by,\n"
 	.string "I have something that\p"
 	.string "Can help you out\n"
 	.string "on your journey.$"
 
 CoolLakeCity_Aquarium_Text_GruntsLeaving:
-	.string "Forget the POKEMON We need\n"
+	.string "Forget the POKEMON, We need\n"
 	.string "to get out of here.\p"
 	.string "You'll regret messing with us!$"
 
 CoolLakeCity_Aquarium_Text_TotodileRecieved:
-	.string "{PLAYER} RECIEVED TOTODILE$"
+	.string "{PLAYER} RECIEVED TOTODILE!$"
 
 
 CoolLakeCity_Aquarium_Movement_GymApproach2:

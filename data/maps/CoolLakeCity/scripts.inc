@@ -103,32 +103,32 @@ CoolLakeCity_Text_GruntsTalking1:
 	.string "Alright, the boss said there's some rare\n"
 	.string "POKEMON in the Aqurium.\p"
 	.string "The two of us will break in\n"
-	.string "and get to work$"
+	.string "and get to work.$"
 
 CoolLakeCity_Text_GruntsTalking2:
 	.string "Meanwhile you'll guard the entrance\p"
 	.string "The Gym leader is away, so as long\n"
-	.string "Any other trainers don't show up\n"
+	.string "Any other trainers don't show up,\n"
 	.string "We shouldn't have any problems$"
 
 CoolLakeCity_Text_GruntsTalking3_She:
 	.string "What's this punk doing here?\p"
-	.string "Take care of her, we'll go get started$"
+	.string "Take care of them, we'll go get started.$"
 
 CoolLakeCity_Text_GruntsTalking3_They:
 	.string "What's this punk doing here?\p"
-	.string "Take care of them, we'll go get started$"
+	.string "Take care of them, we'll go get started.$"
 
 CoolLakeCity_Text_GruntIntro:
-	.string "You better not get in our way$"
+	.string "You better not get in our way!$"
 
 CoolLakeCity_Text_GruntDefeated:
-	.string "Hmph, you got lucky$"
+	.string "Hmph, you got lucky...$"
 
 CoolLakeCity_Text_GruntBattleOver:
-	.string "I don't know who you think you are\n"
+	.string "I don't know who you think you are,\n"
 	.string "but if you know what's best for you\p"
-	.string "You better turn around and leave$"
+	.string "You better turn around and leave.$"
 
 CoolLakeCity_Movement_BattleLeft:
 	walk_left
