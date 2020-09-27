@@ -219,7 +219,10 @@ CoolLakeCity_Aquarium_Event_GetTotodile::
 	end
 
 CoolLakeCity_EventScript_SendTotodileToParty::
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox CoolLakeCity_Aquarium_Text_TotodileRecieved, MSGBOX_AUTOCLOSE
 	removeobject LOCAL_ID_TOTODILE
+	waitfanfare
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq CoolLakeCity_Aquarium_Event_ReceivedTotodile
@@ -229,7 +232,10 @@ CoolLakeCity_EventScript_SendTotodileToParty::
 	end
 
 CoolLakeCity_EventScript_SendTotodileToPC::
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox CoolLakeCity_Aquarium_Text_TotodileRecieved, MSGBOX_AUTOCLOSE
 	removeobject LOCAL_ID_TOTODILE
+	waitfanfare
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq CoolLakeCity_Aquarium_EventScript_TotodileTransferredToPC
@@ -344,6 +350,9 @@ CoolLakeCity_Aquarium_Text_GruntsLeaving:
 	.string "Forget the POKEMON We need\n"
 	.string "to get out of here.\p"
 	.string "You'll regret messing with us!$"
+
+CoolLakeCity_Aquarium_Text_TotodileRecieved:
+	.string "{PLAYER} RECIEVED TOTODILE$"
 
 
 CoolLakeCity_Aquarium_Movement_GymApproach2:

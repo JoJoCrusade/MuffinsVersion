@@ -16,16 +16,17 @@ OldaleTown_House2_EventScript_Man_GivePotion::
 	closemessage
 	giveitem ITEM_POTION
 	setflag FLAG_ITEM_ROUTE_102_POTION
+	closemessage
 	end
 
 OldaleTown_House2_Text_PokemonLevelUp: @ 81FBF6D
-	.string "The caterpies here sure are strange$"
+	.string "The caterpies here sure are strange.$"
 
 
 OldaleTown_House2_Text_YoullGoFurtherWithStrongPokemon: @ 81FBFB0
 	.string "You're just starting your adventure?\n"
-	.string "Oh to be youthful again\p"
-	.string "Have this, it should help you out$"
+	.string "Oh to be youthful again.\p"
+	.string "Have this, it should help you out.$"
 
 OldaleTown_House2_Text_ToBeYouthful: @ 81FBFB0
-	.string "Oh to be youthful again$\p"
+	.string "Oh to be youthful again.$\p"
