@@ -113,6 +113,7 @@ CoolLakeCity_Aquarium_Event_GymLeaderSpawn::
 	delay 15
 	removeobject LOCAL_ID_GRUNT_LEFT
 	removeobject LOCAL_ID_GRUNT_POOL
+	removeobject LOCAL_ID_GRUNT_RIGHT
 	setflag FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_AQUA_GRUNTS
 	special ChooseHalfPartyForBattle
 	waitstate
@@ -425,7 +426,6 @@ CoolLakeCity_Aquarium_Movement_GruntsLeaveRight:
 	walk_down
 	walk_down
 	walk_down
-	walk_right
 	walk_right
 	walk_right
 	walk_right
