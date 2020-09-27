@@ -1157,7 +1157,7 @@ void DrawBattleEntryBackground(void)
             CopyBgTilemapBufferToVram(2);
         }
     }
-    else if (gBattleTypeFlags  & BATTLE_TYPE_TRAINER && BATTLE_TYPE_INGAME_PARTNER)
+    else if ((gBattleTypeFlags & BATTLE_TYPE_TRAINER) && (gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER))
     {
         SetBgAttribute(1, BG_ATTR_CHARBASEINDEX, 2);
         SetBgAttribute(2, BG_ATTR_CHARBASEINDEX, 2);
