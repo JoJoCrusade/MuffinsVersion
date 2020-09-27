@@ -27,7 +27,8 @@ Route2_Text_CalvinPostBattle:
 	.string "Sorry for boterhing you!$"
 
 Route2_Text_TianaIntro:
-	.string "My Slowpoke is different thant other Slowpokes$"
+	.string "My Slowpoke is different than\n"
+	.string "other Slowpokes$"
 
 Route2_Text_TianaDefeated:
 	.string "But my Slowpoke is\n"

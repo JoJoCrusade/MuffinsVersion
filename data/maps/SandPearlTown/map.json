@@ -31,20 +31,6 @@
       "dest_warp_id": 127
     },
     {
-      "x": 22,
-      "y": 25,
-      "elevation": 0,
-      "dest_map": "MAP_SAND_PEARL_TOWN_FISHERS_HOUSE",
-      "dest_warp_id": 0
-    },
-    {
-      "x": 17,
-      "y": 10,
-      "elevation": 0,
-      "dest_map": "MAP_COOL_LAKE_CITY",
-      "dest_warp_id": 0
-    },
-    {
       "x": 19,
       "y": 21,
       "elevation": 0,
