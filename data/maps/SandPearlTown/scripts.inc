@@ -22,6 +22,13 @@ SandPearlTown_SetWarp_She::
 	release
 	end
 
+SandPearlTown_Event_Snorlax::
+	lockall
+	msgbox SandpearlTown_Text_Snorlax, MSGBOX_AUTOCLOSE
+	waitmessage
+	releaseall
+	end
+
 SandPearlTown_Event_Fisherwoman::
 	lock
 	applymovement LOCAL_ID_FISHER, Common_Movement_FacePlayer
@@ -59,3 +66,9 @@ SandPearlTown_Text_GetRod:
 
 SandPearlTown_Text_GotRod:
 	.string "May the Sea give you luck.$"
+
+SandpearlTown_Text_Snorlax:
+	.string "Uh oh, there's a Snorlax\n"
+	.string "in the way.\p"
+	.string "Maybe this will be ready\n"
+	.string "by the next demo.$"
