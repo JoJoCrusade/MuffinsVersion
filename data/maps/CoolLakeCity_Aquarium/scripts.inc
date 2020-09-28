@@ -259,11 +259,11 @@ CoolLakeCity_Aquarium_Event_ReceivedTotodile::
 	end
 
 CoolLakeCity_Aquarium_Event_GruntTainer_F::
-	trainerbattle TRAINER_BATTLE_SET_TRAINER_A, TRAINER_GRUNT_AQUA_HIDEOUT_3, 0, MossdeepCity_SpaceCenter_2F_Text_JustWantToExpandLand, MossdeepCity_SpaceCenter_2F_Text_JustWantToExpandLand
+	trainerbattle TRAINER_BATTLE_SET_TRAINER_A, TRAINER_GRUNT_AQUA_HIDEOUT_3, 0, CoolLakeCity_Aquarium_Text_MultiText1, CoolLakeCity_Aquarium_Text_MultiText1
 	end
 
 CoolLakeCity_Aquarium_Event_GruntTainer_M::
-	trainerbattle TRAINER_BATTLE_SET_TRAINER_B, TRAINER_GRUNT_AQUA_HIDEOUT_4, 0, MossdeepCity_SpaceCenter_2F_Text_JustWantToExpandLand, MossdeepCity_SpaceCenter_2F_Text_JustWantToExpandLand
+	trainerbattle TRAINER_BATTLE_SET_TRAINER_B, TRAINER_GRUNT_AQUA_HIDEOUT_4, 0, CoolLakeCity_Aquarium_Text_MultiText2, CoolLakeCity_Aquarium_Text_MultiText2
 	end
 
 
@@ -354,6 +354,11 @@ CoolLakeCity_Aquarium_Text_GruntsLeaving:
 CoolLakeCity_Aquarium_Text_TotodileRecieved:
 	.string "{PLAYER} RECIEVED TOTODILE!$"
 
+CoolLakeCity_Aquarium_Text_MultiText1::
+	.string "You're lucky Roxanne showed up.$"
+
+CoolLakeCity_Aquarium_Text_MultiText2::
+	.string "Our boss wont forget this.$"
 
 CoolLakeCity_Aquarium_Movement_GymApproach2:
 	walk_up

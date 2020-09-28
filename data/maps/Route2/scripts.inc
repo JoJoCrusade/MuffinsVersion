@@ -28,15 +28,16 @@ Route2_Text_CalvinPostBattle:
 
 Route2_Text_TianaIntro:
 	.string "My Slowpoke is different than\n"
-	.string "other Slowpokes$"
+	.string "other Slowpokes!$"
 
 Route2_Text_TianaDefeated:
-	.string "But my Slowpoke is\n"
-	.string "in the top percentage of Slowpokes$"
+	.string "But my Slowpoke is in the top\n"
+	.string "percentage of Slowpokes...$"
 
 Route2_Text_TianaPostBattle:
-	.string "I spent days catching for perfect values...\p"
-	.string "Maybe there's more to Pokemon than stats$"
+	.string "I spent days catching for perfect\n"
+	.string "values...\p"
+	.string "Maybe there's more to Pokemon than stats.$"
 
 Route2_Text_RickIntro:
 	.string "My mom says I'll be a Pokemon master!$"
