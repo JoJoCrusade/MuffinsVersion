@@ -313,6 +313,6 @@ Common_Text_LookCloserAtMap: @ 81F8820
 	.string "HOENN region map.$"
 
 PlayersHouse_2F_Text_ItsAGameCube: @ 81F884F
-	.string "It's a Nintendo GameCube.\p"
-	.string "A Game Boy Advance is connected to\n"
-	.string "serve as the Controller.$"
+	.string "{PLAYER} PLAYED THE ATARI JAGUAR...\p"
+	.string "You are filled with faith and\n"
+	.string "and determination.$"

@@ -27,7 +27,7 @@ CoolLakeCity_Aquarium_Event_RightEntrance::
 	lock
 	applymovement LOCAL_ID_GRUNT_RIGHT, Common_Movement_ExclamationMark
 	waitmovement 0
-	applymovement LOCAL_ID_GRUNT_LEFT, Common_Movement_WalkDown
+	applymovement LOCAL_ID_GRUNT_RIGHT, Common_Movement_WalkDown
 	waitmovement 0
 	msgbox CoolLakeCity_Aquarium_Text_EntranceMessage, MSGBOX_DEFAULT
 	waitmessage
