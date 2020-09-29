@@ -2128,7 +2128,7 @@ void DoSpecialTrainerBattle(void)
         gPartnerTrainerId = TRAINER_STEVEN_PARTNER;
         CreateTask(Task_StartBattleAfterTransition, 1);
         PlayMapChosenOrBattleBGM(0);
-        BattleTransition_StartOnField(B_TRANSITION_MAGMA);
+        BattleTransition_StartOnField(B_TRANSITION_AQUA);
         break;
     }
 }
