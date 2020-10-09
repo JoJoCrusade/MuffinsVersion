@@ -4490,6 +4490,16 @@
       "secondary_tileset": "gTileset_OceanicMuseum",
       "border_filepath": "data/layouts/CoolLakeCity_Aquarium/border.bin",
       "blockdata_filepath": "data/layouts/CoolLakeCity_Aquarium/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE3",
+      "name": "Route3_Layout",
+      "width": 20,
+      "height": 60,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/Route3/border.bin",
+      "blockdata_filepath": "data/layouts/Route3/map.bin"
     }
   ]
 }

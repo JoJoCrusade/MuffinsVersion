@@ -35,8 +35,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BIG_SNORLAX_DOLL",
-      "x": 17,
-      "y": 11,
+      "x": 13,
+      "y": 10,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -60,6 +60,13 @@
       "y": 21,
       "elevation": 0,
       "dest_map": "MAP_SAND_PEARL_TOWN_FISHERS_HOUSE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 17,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE104_PRETTY_PETAL_FLOWER_SHOP",
       "dest_warp_id": 0
     }
   ],
